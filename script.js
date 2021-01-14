@@ -32,30 +32,63 @@ function generatePassword() {
     var numChars = confirm("Password to contain numbers?");
     var specChars = confirm("Password to contain special characters?")
   };
-
+  //if all are checked
   if (lowCase && upCase && numChars && specChars) {
-    for (var i = 0; i < 1; i++) {
-      answer += lower.charAt(Math.floor(Math.random() * lower.length));
-    }
-    for (var j = 0; j < 1; j++) {
-      answer += upper.charAt(Math.floor(Math.random() * upper.length));
-    }
-    for (var k = 0; k < 1; k++) {
-      answer += nums.charAt(Math.floor(Math.random() * nums.length));
-    }
-    for (var l = 0; l < 1; l++) {
-      answer += spec.charAt(Math.floor(Math.random() * spec.length));
-      console.log(answer);
-    }
+    answer += lower.charAt(Math.floor(Math.random() * lower.length));
+    answer += spec.charAt(Math.floor(Math.random() * spec.length));
+    answer += upper.charAt(Math.floor(Math.random() * upper.length));
+    answer += nums.charAt(Math.floor(Math.random() * nums.length));
+
     possibilities = lower.concat(upper, nums, spec);
 
-    for (var m = 0; m < passLength - 4; m++) {
+    for (var j = 0; j < passLength - 4; j++) {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
     }
-    console.log(possibilities);
+  //if 3 are checked
   } else if (lowCase && upCase && numChars) {
+    answer += lower.charAt(Math.floor(Math.random() * lower.length));
+    answer += upper.charAt(Math.floor(Math.random() * upper.length));
+    answer += nums.charAt(Math.floor(Math.random() * nums.length));
+
     possibilities = lower.concat(upper && nums);
+
+    for (var j = 0; j < passLength - 3; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (lowCase && upCase && specChars) {
+    answer += lower.charAt(Math.floor(Math.random() * lower.length));
+    answer += upper.charAt(Math.floor(Math.random() * upper.length));
+    answer += spec.charAt(Math.floor(Math.random() * spec.length));
+
+    possibilities = lower.concat(upper && spec);
+
+    for (var j = 0; j < passLength - 3; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (lowCase && numChars && specChars) {
+    answer += lower.charAt(Math.floor(Math.random() * lower.length));
+    answer += nums.charAt(Math.floor(Math.random() * nums.length));
+    answer += spec.charAt(Math.floor(Math.random() * spec.length));
+
+    possibilities = lower.concat(nums && spec);
+
+    for (var j = 0; j < passLength - 3; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (upCase && numChars && specChars) {
+    answer += upper.charAt(Math.floor(Math.random() * upper.length));
+    answer += nums.charAt(Math.floor(Math.random() * nums.length));
+    answer += spec.charAt(Math.floor(Math.random() * spec.length));
+
+    possibilities = upper.concat(nums && spec);
+
+    for (var j = 0; j < passLength - 3; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+    //if 2 are checked
   }
+
+
   return answer;
   //for (var i = 0; i < passLength - 5; i++) {
     //answer = answer +
