@@ -86,6 +86,60 @@ function generatePassword() {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
     }
     //if 2 are checked
+  } else if (lowCase && upCase) {
+    answer += lower.charAt(Math.floor(Math.random() * lower.length));
+    answer += upper.charAt(Math.floor(Math.random() * upper.length));
+
+    possibilities = lower.concat(upper;)
+
+    for (var j = 0; j < passLength - 2; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (lowCase && numChars) {
+    answer += lower.charAt(Math.floor(Math.random() * lower.length));
+    answer += nums.charAt(Math.floor(Math.random() * nums.length));
+
+    possibilities = lower.concat(nums;)
+
+    for (var j = 0; j < passLength - 2; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (lowCase && specChars) {
+    answer += lower.charAt(Math.floor(Math.random() * lower.length));
+    answer += spec.charAt(Math.floor(Math.random() * spec.length));
+
+    possibilities = lower.concat(spec;)
+
+    for (var j = 0; j < passLength - 2; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (upCase && numChars) {
+    answer += upper.charAt(Math.floor(Math.random() * upper.length));
+    answer += nums.charAt(Math.floor(Math.random() * nums.length));
+
+    possibilities = upper.concat(nums;)
+
+    for (var j = 0; j < passLength - 2; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (upCase && specChars) {
+    answer += upper.charAt(Math.floor(Math.random() * upper.length));
+    answer += spec.charAt(Math.floor(Math.random() * spec.length));
+
+    possibilities = upper.concat(spec;)
+
+    for (var j = 0; j < passLength - 2; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (numChars && specChars) {
+    answer += nums.charAt(Math.floor(Math.random() * nums.length));
+    answer += spec.charAt(Math.floor(Math.random() * spec.length));
+
+    possibilities = nums.concat(spec;)
+
+    for (var j = 0; j < passLength - 2; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
   }
 
 
