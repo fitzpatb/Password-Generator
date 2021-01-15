@@ -90,7 +90,7 @@ function generatePassword() {
     answer += lower.charAt(Math.floor(Math.random() * lower.length));
     answer += upper.charAt(Math.floor(Math.random() * upper.length));
 
-    possibilities = lower.concat(upper;)
+    possibilities = lower.concat(upper)
 
     for (var j = 0; j < passLength - 2; j++) {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
@@ -99,7 +99,7 @@ function generatePassword() {
     answer += lower.charAt(Math.floor(Math.random() * lower.length));
     answer += nums.charAt(Math.floor(Math.random() * nums.length));
 
-    possibilities = lower.concat(nums;)
+    possibilities = lower.concat(nums)
 
     for (var j = 0; j < passLength - 2; j++) {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
@@ -108,7 +108,7 @@ function generatePassword() {
     answer += lower.charAt(Math.floor(Math.random() * lower.length));
     answer += spec.charAt(Math.floor(Math.random() * spec.length));
 
-    possibilities = lower.concat(spec;)
+    possibilities = lower.concat(spec)
 
     for (var j = 0; j < passLength - 2; j++) {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
@@ -117,7 +117,7 @@ function generatePassword() {
     answer += upper.charAt(Math.floor(Math.random() * upper.length));
     answer += nums.charAt(Math.floor(Math.random() * nums.length));
 
-    possibilities = upper.concat(nums;)
+    possibilities = upper.concat(nums)
 
     for (var j = 0; j < passLength - 2; j++) {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
@@ -126,7 +126,7 @@ function generatePassword() {
     answer += upper.charAt(Math.floor(Math.random() * upper.length));
     answer += spec.charAt(Math.floor(Math.random() * spec.length));
 
-    possibilities = upper.concat(spec;)
+    possibilities = upper.concat(spec)
 
     for (var j = 0; j < passLength - 2; j++) {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
@@ -135,18 +135,43 @@ function generatePassword() {
     answer += nums.charAt(Math.floor(Math.random() * nums.length));
     answer += spec.charAt(Math.floor(Math.random() * spec.length));
 
-    possibilities = nums.concat(spec;)
+    possibilities = nums.concat(spec)
 
     for (var j = 0; j < passLength - 2; j++) {
       answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
     }
+    //if only 1 box is checked
+  } else if (upCase) {
+    possibilities = upper;
+
+    for (var j = 0; j < passLength; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (lowCase) {
+    possibilities = lower;
+
+    for (var j = 0; j < passLength; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (numChars) {
+    possibilities = nums;
+
+    for (var j = 0; j < passLength; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else if (specChars) {
+    possibilities = spec;
+
+    for (var j = 0; j < passLength; j++) {
+      answer += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
+    }
+  } else {
+    alert("You must choose one of the options.")
   }
 
 
   return answer;
-  //for (var i = 0; i < passLength - 5; i++) {
-    //answer = answer +
-  //}
+
 }
 //make window prompt appear after clicking generate password button.
 
